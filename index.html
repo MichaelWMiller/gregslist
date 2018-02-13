@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="app/styles/styles.css">
     <title>GregsList!</title>
 </head>
 
@@ -32,10 +32,10 @@
             </div>
         </header>
         <!-- FORM AND CONTENT -->
-        <section>
+        <section id="autos">
             <div class="row">
                 <div class="col-sm-6">
-                    <form onsubmit="app.controllers.autosCtrl.addCar(event)" id="car-form">
+                    <form onsubmit="app.controllers.autosCtrl.addCar(event)" visible=false id="car-form">
                         <input type="text" name='make' placeholder='Make'>
                         <input type="text" name='model' placeholder='model'>
                         <input type="number" name='year' placeholder='year'>
@@ -46,7 +46,7 @@
                             <select class="form-control" id="condition" name="condition">
                 <option value="0">"new"</option>
                 <option value="1">like new</option>
-                <option value="2">fair</option>
+                                           <option value="2">fair</option>
                 <option value="3">rust-bucket</option>
                 <option value="4">you got a tow truck?</option>
               </select>
@@ -56,50 +56,54 @@
                 </div>
             </div>
             <div class="row" id="board">
-                <!-- <div class="col-sm-3">
-          <img src="//placehold.it/200x200">
-          <p>MAKE</p>
-          <p>MODEL</p>
-          <p>PRICE</p>
-        </div>
-        <div class="col-sm-3">
-          <img src="//placehold.it/200x200" alt="">
-          <p>MAKE</p>
-          <p>model</p>
-          <p>PRICE</p>
-        </div>
-        <div class="col-sm-3">
-          <img src="//placehold.it/200x200" alt="">
-          <p>MAKE</p>
-          <p>model</p>
-          <p>PRICE</p>
-        </div>
-        <div class="col-sm-3">
-          <img src="//placehold.it/200x200" alt="">
-          <p>MAKE</p>
-          <p>model</p>
-          <p>PRICE</p>
-        </div> -->
             </div>
-
-
-
-
-
         </section>
+        <section id="properties">
+            <div class="row">
+                <div class="col-sm-6">
+                    <!--   location, price, sqfeet, acres, img -->
+                    <form onsubmit="app.controllers.autosCtrl.addProperty(event)" id="property-form">
+                        <input type="text" name='location' placeholder='Location'>
+                        <input type="number" name='price' placeholder='Price'>
+                        <input type="number" name='sqfeet' placeholder='sqfeet'>
+                        <input type="number" name='acres' placeholder="Acres">
+                        <input type="url" name="img" placeholder="image link">
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row" id="board">
+            </div>
+        </section>
+        <section id="jobs">
+            <div class="row">
+                <div class="col-sm-6">
+                    <form onsubmit="app.controllers.jobCtrl.addJob(event)" id="job-form">
+                        <input type="text" name='position' placeholder='Position'>
+                        <input type="number" name='salary' placeholder='Salary'>
+                        <input type="text" name='location' placeholder='Location'>
+                        <input type="text" name="description" placeholder="Description">
+                        <input type="url" name="linkUrl" placeholder="Job Link">
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row" id="board">
+            </div>
+        </section>
+
     </div>
-
-
-
-
-
 
     <!-- EXTERNAL LIBRARIES -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- SERVICES -->
-    <script src="app/autos/auto-service.js"></script>
+    <script src="app/auto/auto-service.js"></script>
+    <script src="app/property/property-service.js"></script>
+    <script src="app/job/job-service.js"></script>
     <!-- CONTROLLER -->
-    <script src="app/autos/auto-controller.js"></script>
+    <script src="app/auto/auto-controller.js"></script>
+    <script src="app/property/property-controller.js"></script>
+    <script src="app/job/job-controller.js"></script>
     <!-- INIT/APP -->
     <script src="app/init.js"></script>
 </body>

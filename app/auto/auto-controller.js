@@ -38,14 +38,16 @@ function AutoController() {
         draw()
     }
 
-
-
-
     console.log("Controller is up and running")
 
+    hideOtherForms()
     draw()
 
+    function hideOtherForms() {
+        document.getElementById("property-form").style.visibility = "hidden"
+        document.getElementById("job-form").style.visibility = "hidden"
 
+    }
 
 
 }
