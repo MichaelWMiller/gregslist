@@ -17,7 +17,7 @@ function AutoController() {
           </div>
           `
         }
-        document.getElementById('board').innerHTML = template
+        document.getElementById('autoBoard').innerHTML = template
     }
 
 
@@ -40,14 +40,20 @@ function AutoController() {
 
     console.log("Controller is up and running")
 
-    hideOtherForms()
-    draw()
-
     function hideOtherForms() {
-        document.getElementById("property-form").style.visibility = "hidden"
-        document.getElementById("job-form").style.visibility = "hidden"
+        document.getElementById("properties").style.visibility = "hidden"
+        document.getElementById("jobs").style.visibility = "hidden"
 
+        document.getElementById("autos").style.visibility = "visible"
     }
 
+    this.goAutos = function goAutos() {
+        hideOtherForms()
+        draw()
+    }
+
+
+    hideOtherForms()
+    draw()
 
 }

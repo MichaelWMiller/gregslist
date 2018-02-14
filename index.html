@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GregsList!</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="app/styles/styles.css">
-    <title>GregsList!</title>
 </head>
 
 <body>
@@ -19,15 +19,18 @@
                     <h1>Welcome to GregsList</h1>
                 </div>
             </div>
-            <div class="row text-center">
+            <div class="row text-center justify-between">
                 <div class="col-sm-4">
                     <h3>Autos</h3>
+                    <button class="btn button btn-danger" onclick="app.controllers.autoCtrl.goAutos()">Go Autos</button>
                 </div>
                 <div class="col-sm-4">
                     <h3>Properties</h3>
+                    <button class="btn button btn-danger" onclick="app.controllers.propertyCtrl.goProperties()">Go Properties</button>
                 </div>
                 <div class="col-sm-4">
                     <h3>Jobs</h3>
+                    <button class="btn button btn-danger" onclick="app.controllers.jobCtrl.goJobs()">Go Jobs</button>
                 </div>
             </div>
         </header>
@@ -55,14 +58,14 @@
                     </form>
                 </div>
             </div>
-            <div class="row" id="board">
+            <div class="row" id="autoBoard">
             </div>
         </section>
         <section id="properties">
             <div class="row">
                 <div class="col-sm-6">
                     <!--   location, price, sqfeet, acres, img -->
-                    <form onsubmit="app.controllers.autosCtrl.addProperty(event)" id="property-form">
+                    <form onsubmit="app.controllers.propertyCtrl.addProperty(event)" id="property-form">
                         <input type="text" name='location' placeholder='Location'>
                         <input type="number" name='price' placeholder='Price'>
                         <input type="number" name='sqfeet' placeholder='sqfeet'>
@@ -72,23 +75,25 @@
                     </form>
                 </div>
             </div>
-            <div class="row" id="board">
+            <div class="row" id="propertyBoard">
             </div>
         </section>
+        <!-- //position, location, salary, description, img -->
+
         <section id="jobs">
             <div class="row">
                 <div class="col-sm-6">
                     <form onsubmit="app.controllers.jobCtrl.addJob(event)" id="job-form">
                         <input type="text" name='position' placeholder='Position'>
-                        <input type="number" name='salary' placeholder='Salary'>
                         <input type="text" name='location' placeholder='Location'>
+                        <input type="number" name='salary' placeholder='Salary'>
                         <input type="text" name="description" placeholder="Description">
                         <input type="url" name="linkUrl" placeholder="Job Link">
                         <button type="submit">Submit</button>
                     </form>
                 </div>
             </div>
-            <div class="row" id="board">
+            <div class="row" id="jobBoard">
             </div>
         </section>
 
