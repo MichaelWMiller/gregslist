@@ -23,7 +23,7 @@ function JobController() {
     //position, location, salary, description, img
 
     this.addJob = function addJob(event, formId) {
-
+        debugger
         event.preventDefault();
         var form = event.target
         var jobObj = {

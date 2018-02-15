@@ -2,6 +2,35 @@ function AutoController() {
     //private
     var autoService = new AutoService()
 
+    //html elements
+    var serchElem = document.getElementById('search-query')
+    var makeElem = document.getElementById('makes-here')
+    var modelsElem = document.getElementById('models-here')
+
+
+
+    this.exposeMake = function exposeMake(event) {
+        //resultsElem.classList.add('hidden')
+        console.log('In exposeMake()')
+        var query = event.target.value
+        autoService.getMakes(drawMakes)
+    }
+
+    function drawMakes(res) {
+        var arr = []
+
+        arr = res.Results
+        var template = `<select onchange="app.controllers.autoCtrl.findModels(event)>`
+        for (var i = 0; i < arr.length; i++) {
+            var item = arr[i]
+            template += `<option value="${item.Make_ID}">${item.Make_Name}</option>`
+        }
+        template += `</select>`
+        makeElem.innerHTML = template
+        modelsElem.classList.remove('hidden')
+    }
+
+
 
     function draw() {
         var carArr = autoService.getCars()

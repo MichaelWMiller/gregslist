@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="app/styles/styles.css">
 </head>
 
-<body>
-    <div class="container-fluid">
+<body onload="app.controllers.autoCtrl.exposeMake(event)">
+    <div class="container-fluid" on>
 
         <header class="headers">
             <div class="row">
@@ -39,24 +39,32 @@
             <div class="row">
                 <div class="col-sm-6">
                     <form onsubmit="app.controllers.autosCtrl.addCar(event)" visible=false id="car-form">
-                        <input type="text" name='make' placeholder='Make'>
-                        <input type="text" name='model' placeholder='model'>
+                        <input type="text" name='make' placeholder='Make' id="make-input">
+                        <input type="text" name='model' placeholder='model' id="model-input">
                         <input type="number" name='year' placeholder='year'>
                         <input type="number" name="price" placeholder="NAME YER PRICE">
                         <input type="url" name="img" placeholder="image link">
                         <div class="form-group">
                             <label for="condition">condition</label>
                             <select class="form-control" id="condition" name="condition">
-                <option value="0">"new"</option>
-                <option value="1">like new</option>
-                                           <option value="2">fair</option>
-                <option value="3">rust-bucket</option>
-                <option value="4">you got a tow truck?</option>
-              </select>
+                                <option value="0">"new"</option>
+                                <option value="1">like new</option>
+                                                        <option value="2">fair</option>
+                                <option value="3">rust-bucket</option>
+                                <option value="4">you got a tow truck?</option>
+                            </select>
                         </div>
+
                         <button type="submit">Submitt</button>
                     </form>
                 </div>
+                <div class="col-sm-6" id="dropdowns-here">
+                    <div id="makes-here">
+                    </div>
+                    <div class="hidden" id="models-here">
+                    </div>
+                </div>
+
             </div>
             <div class="row" id="autoBoard">
             </div>
@@ -96,6 +104,11 @@
             <div class="row" id="jobBoard">
             </div>
         </section>
+        <section class="hidden" id="makes-here">
+        </section>
+        <section class="hidden" id="models-here">
+        </section>
+
 
     </div>
 

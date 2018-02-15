@@ -2,6 +2,11 @@ function AutoService() {
 
     //Private
     var cars = []
+    var makes = []
+    var models = []
+
+
+
     var conditions = ['"new"', 'like-new', 'fair', 'rust-bucket', 'you got a tow truck?']
 
     function Car(make, year, model, price, condition, img) {
@@ -18,6 +23,18 @@ function AutoService() {
     this.getCars = function getCars() {
         return JSON.parse(JSON.stringify(cars))
     }
+    var makeUrl = 'https://vpic.nhtsa.dot.gov/api/vehicles/getallmakes?format=json'
+    this.getMakes = function getMakes(callback) {
+        if (typeof callback != 'function') {
+            return console.log(callback, 'is not a callback')
+        }
+        console.log('Getting Makes data...')
+
+        $.get(makeUrl).then(function(results) {
+            callback(results)
+        })
+    }
+
 
     this.addCar = function addCar(carObj) {
         var newCar = new Car(carObj.make, carObj.year, carObj.model, carObj.price, carObj.condition, carObj.img)
